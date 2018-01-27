@@ -1,7 +1,7 @@
 <template lang="pug">
   .login-container
     el-form.card-box.login-form( :model="loginForm", :rules="loginRules", ref="loginForm")
-      h3.title 汇美影像管理后台(神级版本)
+      h3.title {{$t('login.title')}}
       el-form-item(prop="username")
         span.svg-container.svg-container_login
           svg-icon(iconClass="user")
@@ -19,18 +19,9 @@
 
 <script>
   import {isvalidUsername} from '@/utils/validate'
-  import ElFormItem from "../../../node_modules/element-ui/packages/form/src/form-item.vue";
-  import SvgIcon from "../../components/SvgIcon/index.vue";
-  import ElInput from "../../../node_modules/element-ui/packages/input/src/input.vue";
-  import ElButton from "../../../node_modules/element-ui/packages/button/src/button.vue";
+  import LangSelect from '@/components/LangSelect'
   
   export default {
-    components: {
-      ElButton,
-      ElInput,
-      SvgIcon,
-      ElFormItem
-    },
     name: 'login',
     data() {
       return {

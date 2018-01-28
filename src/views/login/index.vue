@@ -16,7 +16,6 @@
           svg-icon(iconClass="eye")
       el-form-item
         el-button(type="primary", style="width:100%;", :loading="loading", @click.native.prevent="handleLogin") {{$t("login.logIn")}}
-
 </template>
 
 <script>

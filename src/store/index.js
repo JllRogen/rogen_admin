@@ -6,7 +6,6 @@ import getters from './getters/index'
 
 Vue.use(Vuex)
 
-
 const store = new Vuex.Store({
   modules: {
     app,

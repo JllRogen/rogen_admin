@@ -1,19 +1,21 @@
 <template lang="pug">
   .login-container
     el-form.card-box.login-form( :model="loginForm", :rules="loginRules", ref="loginForm")
-      h3.title {{$t('login.title')}}
+      .title-container
+        h3.title {{$t('login.title')}}
+        lang-select.set-language
       el-form-item(prop="username")
         span.svg-container.svg-container_login
           svg-icon(iconClass="user")
-        el-input(name="username", type="text", v-model="loginForm.username", autoComplete="on", placeholder="username")
+        el-input(name="username", type="text", v-model="loginForm.username", autoComplete="on", :placeholder="$t('login.username')")
       el-form-item(prop="password")
         span.svg-container
           svg-icon(iconClass="password")
-        el-input(name="password", :type="pwdType", v-model="loginForm.password", autoComplete="on", placeholder="password", @keyup.enter.native="handleLogin")
+        el-input(name="password", :type="pwdType", v-model="loginForm.password", autoComplete="on", :placeholder="$t('login.password')", @keyup.enter.native="handleLogin")
         span.show-pwd(@click="showPwd")
           svg-icon(iconClass="eye")
       el-form-item
-        el-button(type="primary", style="width:100%;", :loading="loading", @click.native.prevent="handleLogin") 登入
+        el-button(type="primary", style="width:100%;", :loading="loading", @click.native.prevent="handleLogin") {{$t("login.logIn")}}
 
 </template>
 
@@ -23,6 +25,7 @@
   
   export default {
     name: 'login',
+    components:{LangSelect},
     data() {
       return {
         loginForm: {
@@ -35,7 +38,7 @@
             trigger: 'blur',
             validator: (rule, value, callback) => {
               if(!isvalidUsername(value)) {
-                callback(new Error('请输入正确的用户名'))
+                callback(new Error(this.$t('login.userNameErrorTips')))
               }
               else {
                 callback()
@@ -47,7 +50,7 @@
             trigger: 'blur',
             validator: (rule, value, callback) => {
               if(value.length < 5) {
-                callback(new Error('密码不能小于5位'))
+                callback(new Error(this.$t("login.passwordErrorTips")))
               }
               else {
                 callback()
@@ -59,6 +62,7 @@
         pwdType: 'password'
       }
     },
+    
     methods: {
       showPwd() {
         if(this.pwdType === 'password') {
@@ -70,7 +74,7 @@
       },
       handleLogin() {
         this.$refs.loginForm.validate(valid => {
-          //          console.log(valid)
+          // console.log(valid)
           if(valid) {
             this.loading = true
             this.$store.dispatch('Login', this.loginForm).then(() => {
@@ -131,13 +135,21 @@
       display: inline-block
       &_login
         font-size: 20px
-    
-    .title
-      font-size: 26px
-      color: $light_gray
-      margin: 0 auto 40px auto
-      text-align: center
-      font-weight: bold
+    .title-container
+      position: relative
+      .title
+        font-size: 26px
+        font-weight: 400
+        color: $light_gray
+        margin: 0px auto 40px auto
+        text-align: center
+        font-weight: bold
+      .set-language
+        color: #fff
+        position: absolute
+        top: 5px
+        right: 0px
+      
     
     .login-form
       position: absolute

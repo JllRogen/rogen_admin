@@ -18,6 +18,7 @@ import '@/icons' // icon
 import '@/permission' // permission control
 
 //Vue.use(ElementUI, { locale })
+
 Vue.use(ElementUI, {
   size: 'medium', // set element-ui default size
   i18n: (key, value) => i18n.t(key, value)
@@ -30,6 +31,7 @@ new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   template: '<App/>',
   components: { App }
 })

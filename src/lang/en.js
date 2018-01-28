@@ -61,6 +61,9 @@ export default {
     username: 'Username',
     password: 'Password',
     any: 'any',
+    userNameErrorTips: "Please input correct username.",
+    passwordErrorTips: "Password can't less 5 character.",
+  
     thirdparty: 'Or connect with',
     thirdpartyTips: 'Can not be simulated on local, so please combine you own business simulation! ! !'
   },

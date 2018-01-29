@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
     } else {
       
       if (store.getters.roles.length === 0) {
-        store.dispatch('GetInfo').then(res => { // 拉取用户信息
+        store.dispatch('GetUserInfo').then(res => { // 拉取用户信息
           next()
         }).catch(() => {
           store.dispatch('FedLogOut').then(() => {

@@ -4,8 +4,11 @@
       hamburger(:toggleClick="toggleSideBar", :isActive="sidebar.opened")
     .breadcrumb-container.navbar-item
       breadcrumb
-    
     .right-menu
+      //全屏
+      
+      el-tooltip.navbar-item.screenfull-container(effect="dark", :content="$t('navbar.screenfull')", placement="bottom")
+        screen-full
       // 语言选择
       .navbar-item.international
         lang-select
@@ -28,11 +31,14 @@
   import Breadcrumb from '@/components/Breadcrumb'
   import Hamburger from '@/components/Hamburger'
   import LangSelect from "@/components/LangSelect"
+  import ScreenFull from "@/components/Screenfull"
+  
   export default {
     components: {
       Breadcrumb,
       Hamburger,
-      LangSelect
+      LangSelect,
+      ScreenFull,
     },
     computed: {
       ...mapGetters(['sidebar', 'avatar'])
@@ -64,9 +70,9 @@
       padding: 0 8px
       float: left
     /*.hamburger-container*/
-      /*float: left*/
+    /*float: left*/
     /*.breadcrumb-container*/
-      /*float: left*/
+    /*float: left*/
     .right-menu
       float: right
       height: 100%

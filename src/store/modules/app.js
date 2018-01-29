@@ -2,13 +2,14 @@ import Cookies from 'js-cookie'
 
 const app = {
   state: {
+    // 侧边栏
     sidebar: {
       opened: ! + Cookies.get('sidebarStatus')
     },
-    language: Cookies.get('language') || 'zh'    // 设置语言
+    language: Cookies.get('language') || 'en'    // 设置语言
   },
   mutations: {
-    TOGGLE_SIDEBAR: state => {
+    TOGGLE_SIDEBAR: state => {  // 切换侧边栏
       if (state.sidebar.opened) {
         Cookies.set('sidebarStatus', 1)
       } else {
@@ -16,7 +17,7 @@ const app = {
       }
       state.sidebar.opened = !state.sidebar.opened
     },
-    SET_LANGUAGE: (state, language) => {
+    SET_LANGUAGE: (state, language) => {   // 设置侧边栏
       state.language = language
       Cookies.set('language', language)
     }

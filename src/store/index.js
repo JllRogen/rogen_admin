@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-//import permission from './modules/permission'
+import permission from './modules/permission'
 import app from './modules/app'
 import user from './modules/user'
 import tagsView from "./modules/tagsView"
@@ -13,7 +13,7 @@ const store = new Vuex.Store({
     app,
     user,
     tagsView,
-    //permission
+    permission
   },
   getters
 })

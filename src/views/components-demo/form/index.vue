@@ -80,9 +80,9 @@ export default {
 }
 </script>
 
-<style scoped>
-.line{
-  text-align: center;
-}
+<style lang="stylus" scoped>
+.line
+  text-align: center
+
 </style>
 

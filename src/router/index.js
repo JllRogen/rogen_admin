@@ -82,49 +82,58 @@ export default new Router({
 })
 
 export const asyncRouterMap = [
-  {   // 案例
-    path: '/example',
+  
+  {
+    path: '/components',
     component: Layout,
-    redirect: '/example/tree',
-    name: 'Example',
+    redirect: 'noredirect',
+    name: 'component-demo',
     alwaysShow: true,
     meta: {
-      title: 'Example',
-      icon: 'example'
+      title: 'components',
+      icon: 'component'
     },
     children: [
       {
-        path: 'tree',
-        name: 'Tree',
-        component: _import('tree/index'),
+        path: "form",
+        name: "Form",
+        component: _import("components-demo/form/index"),
         meta: {
-          title: 'Tree',
-          icon: 'tree',
+          title: "Form",
+          //icon: "form",
           roles: ["developer", "editer"]
         }
-      }
-    ]
-  },
-  {
-    path: '/form',
-    component: Layout,
-    children: [
+        
+      },
       {
-        path: 'index',
-        name: 'Form',
-        component: _import('form/index'),
+        path: 'tree',
+        name: 'Tree',
+        component: _import('components-demo/tree/index'),
         meta: {
-          title: 'Form',
-          icon: 'form',
-          keepAlive: true,
-          roles: ['developer', "editer"]
+          title: 'Tree',
+          //icon: 'tree',
+          roles: ["developer", "editer"]
         }
-      }
+      },
+      {
+        path: 'tinymce',
+        component: _import('components-demo/tinymce/index'),
+        name: 'tinymce-demo',
+        meta: {title: 'tinymce'}
+      },
+    
     ]
   },
+  // 找不到路由的直接跳到404页面
   {
     path: '*',
     redirect: '/404',
     hidden: true
-  }, // 找不到路由的直接跳到404页面
+  },
+
 ]
+
+
+
+
+

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import 'normalize.css/normalize.css'// A modern alternative to CSS resets
+import 'normalize.css/normalize.css'   // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -27,11 +27,10 @@ Vue.use(ElementUI, {
 Vue.config.productionTip = false    //设置为 false 以阻止 vue 在启动时生成生产提示。
 
 window.vm = new Vue({
-  el: '#app',
   router,
   store,
   i18n,
   template: '<App/>',
   components: { App }
-})
+}).$mount("#app")
 

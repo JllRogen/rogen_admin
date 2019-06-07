@@ -32,11 +32,11 @@
   }
 </script>
 
-<style rel="stylesheet/scss" scoped>
+<style  lang="stylus" scoped>
   @import "../../styles/mixin.styl";
   
   .app-wrapper {
-  clearfix() position: relative;
+  // clearfix() position: relative;
     height: 100%;
     width: 100%;
   }

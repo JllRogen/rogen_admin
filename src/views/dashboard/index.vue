@@ -4,13 +4,18 @@
     .dashboard-text
       span roles:
       span(v-for="role in roles", :key="role") {{role}}
+  
 </template>
+
+
 
 <script>
 import { mapGetters } from 'vuex'
-
 export default {
   name: 'dashboard',
+  components: {
+    
+  },
   computed: {
     ...mapGetters([
       'name',
